@@ -1,0 +1,52 @@
+{
+    "name": "appium-ts-cucumber",
+    "version": "1.0.0",
+    "author": "",
+    "license": "MIT",
+    "description": "",
+    "repository": {},
+    "engines": {
+        "node": "^16.13.0 || >=18.0.0"
+    },
+    "keywords": [
+        "WebdriverIO",
+        "WebDriver",
+        "appium",
+        "native app",
+        "hybrid",
+        "android",
+        "ios"
+    ],
+    "type": "module",
+    "scripts": {
+        "test.android": "wdio run config/wdio.android.cucumber.conf.ts",
+        "report": "node generateReport.js",
+        "test.ios": "wdio run config/wdio.ios.app.cucumber.conf.ts"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.1.0",
+        "@typescript-eslint/eslint-plugin": "^8.1.0",
+        "@typescript-eslint/parser": "^8.1.0",
+        "@wdio/appium-service": "^9.0.1",
+        "@wdio/cli": "^9.0.1",
+        "@wdio/cucumber-framework": "^9.0.0",
+        "@wdio/globals": "^9.0.1",
+        "@wdio/local-runner": "^9.0.1",
+        "@wdio/mocha-framework": "^9.0.0",
+        "@wdio/spec-reporter": "^9.0.0",
+        "appium": "^2.11.3",
+        "appium-uiautomator2-driver": "^3.7.7",
+        "appium-xcuitest-driver": "7.24.16",
+        "cucumber-html-reporter": "^7.1.1",
+        "eslint-plugin-wdio": "^9.0.0",
+        "multiple-cucumber-html-reporter": "^3.7.0",
+        "protractor": "^7.0.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.4"
+    },
+    "dependencies": {
+        "@wdio/types": "^9.0.0",
+        "fast-glob": "^3.3.2",
+        "glob": "^11.0.0"
+    }
+}
