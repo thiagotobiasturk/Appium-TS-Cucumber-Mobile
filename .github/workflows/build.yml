@@ -39,8 +39,8 @@ jobs:
           arch: x86_64
           profile: Nexus 6
           script: |
-            adb install "apps/android/QA-3.3.5(306).apk"
-            adb shell dumpsys package    com.fasterwaytofatloss.FasterWayToFatLoss | grep -A 1 "MAIN"
+            adb install "android.wdio.native.app.v1.0.8.apk"
+            adb shell dumpsys package    com.wdiodemoapp.MainActivity | grep -A 1 "MAIN"
             adb wait-for-device
             adb shell input keyevent 82
             npx wdio run config/wdio.android.cucumber.conf.ts --cucumberOpts.tags="@all"
