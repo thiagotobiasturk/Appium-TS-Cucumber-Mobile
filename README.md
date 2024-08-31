@@ -1,7 +1,8 @@
 # Appium-TS-Cucumber-Mobile
 
-![download](https://github.com/user-attachments/assets/d8feda61-6a05-47b6-8705-b185913fa659)
+![Diseño sin título (3)](https://github.com/user-attachments/assets/54a27691-e970-4607-a0c7-9b9296b6f07b)
 
+[Actions-CI/CD]()
 
 ## Description
 
@@ -27,10 +28,10 @@ Steps to install and set up your project. This may include prerequisites, depend
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/qa-automation-api.git
+git clone https://github.com/yourusername/Appium-TS-Cucumber-Mobile.git
 
 # Navigate into the project directory
-cd qa-automation-api
+cd Appium-TS-Cucumber-Mobile
 
 # Install dependencies
 npm i  
@@ -113,7 +114,7 @@ javac -version
 # Run Appium Doctor to check your setup
 appium-doctor --android
 ```
-![image](https://github.com/user-attachments/assets/b3ecddea-0e3d-4dad-918f-f8d28321cb66)
+![image](https://github.com/user-attachments/assets/404e7655-c8f5-4513-9aca-e610ee864f6c)
 
 ## How to Create an Emulator 📱
 
@@ -121,30 +122,30 @@ appium-doctor --android
    - Click on 'More Actions'
    - Click on 'Virtual Device Manager'
 
-  ![image](https://github.com/user-attachments/assets/5863422c-f06a-4256-b4ed-f9d1e1df651a)
+![image](https://github.com/user-attachments/assets/de8482ee-226f-41d1-90b6-752b5f9d3bd3)
 
 **2. Click on '+'**
 
-![image](https://github.com/user-attachments/assets/52be8aa6-368c-4074-904c-342366edf8d3)
+![image](https://github.com/user-attachments/assets/6e1ccc42-ef54-4f1d-a79d-4cc3e3f61ffe)
 
 **3. Choose the device and Android version**
 
-![image](https://github.com/user-attachments/assets/9e2fb40d-d4de-45e0-a5b1-bc13756214d4)
+![image](https://github.com/user-attachments/assets/e6f97422-e0e2-49bc-977f-ee0ed558de53)
 
 **4. Enter a name for the emulator and click on 'Finish'**
 
-![image](https://github.com/user-attachments/assets/b48a67ad-f580-401c-bace-0e0e9692a5fd)
+![image](https://github.com/user-attachments/assets/e7e89ac1-da41-4c5b-84cf-e72478a91385)
 
-![image](https://github.com/user-attachments/assets/9083ed47-ffed-4e2e-8000-e7b7c8c90415)
+![image](https://github.com/user-attachments/assets/aa59d0b4-b1d5-4c9b-87e3-d192691683b4)
 
 
 **5.  To start the emulator, click on the 'Play' button**
 
-![image](https://github.com/user-attachments/assets/2242df8e-a42c-4983-aa80-16a8c65c11b5)
+![image](https://github.com/user-attachments/assets/de6480ff-33b9-4319-b9f1-70c2e5f7dc1a)
 
 **Result:**
 
-![image](https://github.com/user-attachments/assets/97601dc2-ca2c-440e-bf31-341cc2b176d4)
+![image](https://github.com/user-attachments/assets/63ea1f5d-e163-4374-bccf-1ae4ea0562e7)
 
 # Writing Tests with Cucumber  ✏️
 
@@ -159,14 +160,14 @@ The `Given` step defines the initial context or state of the system before the a
 
 **Example:**
 ```gherkin
-Given the user is on the login page
+Given the user is on the home screen
 ```
 `When`
 The When step describes the action or event that occurs in the scenario. It is the main part of the test where the behavior under test is triggered.
 
 **Example:**
 ```gherkin
-When the user enters valid credentials
+When the user navigates to the "webview"
 ```
 
 `Then`
@@ -174,23 +175,28 @@ The Then step specifies the expected outcome or result after the action has been
 
 **Example:**
 ```gherkin
-Then the user should be redirected to the dashboard
+Then the user should be successfully logged in and see the login success page
 ```
 
-### Scenario Outlines ###
-`Scenario Outline` allows you to run the same scenario with different sets of data. This is useful for testing various input combinations without duplicating scenarios.
 
 **Example:**
 ```gherkin
-Scenario Outline: User login with multiple credentials
-  Given the user is on the login page
-  When the user enters <username> and <password>
-  Then the user should be redirected to the dashboard
+Feature: User login process
 
-  Examples:
-    | username | password |
-    | user1    | pass1    |
-    | user2    | pass2    |
+  This feature describes the process for a user to log into the application. 
+  It covers the steps required to navigate to the login screen, enter credentials, 
+  and verify a successful login.
+  
+  Scenario: Successful login
+    Given the user is on the home screen
+    When the user navigates to the "webview"
+    And the user performs a "swipe" action
+    And the user selects the "login" option
+    And the user enters "appium@gmail.com" into the email field
+    And the user enters "password123" into the password field
+    And I tap the login button
+    Then the user should be successfully logged in and see the login success page
+  
 ```
 
 ### Background ###
@@ -198,18 +204,24 @@ The `Background` section is used to define a common context for all scenarios in
 
 **Example:**
 ```gherkin
-Feature: User login
+Feature: User login process
 
+  This feature describes the process for a user to log into the application. 
+  It covers the steps required to navigate to the login screen, enter credentials, 
+  and verify a successful login.
+  
   Background:
-    Given the user is on the login page
-
-  Scenario: User logs in with valid credentials
-    When the user enters valid credentials
-    Then the user should be redirected to the dashboard
-
-  Scenario: User logs in with invalid credentials
-    When the user enters invalid credentials
-    Then an error message should be displayed
+    Given the user is on the home screen
+  
+  Scenario: Successful login
+    When the user navigates to the "webview"
+    And the user performs a "swipe" action
+    And the user selects the "login" option
+    And the user enters "appium@gmail.com" into the email field
+    And the user enters "password123" into the password field
+    And I tap the login button
+    Then the user should be successfully logged in and see the login success page
+  
 ```
 
 ### Regular Scenarios ###
@@ -236,39 +248,41 @@ In this framework, the `Login` page object is defined as follows:
 **`Login.page.ts`**
 ```typescript
 class Login {
-    get usernameInput() { return $('//android.widget.EditText[@text="Email"]'); }
-    get passwordInput() { return $('//android.widget.EditText[@text="Password"]'); }
-    get submitButton() { return $('(//android.widget.TextView[@text="Sign In"])[2]'); }
-    get successMessage() { return $('//android.widget.ScrollView/android.view.ViewGroup'); }
-    get unsuccessfulMessage() { return $('//android.widget.TextView[@text="Incorrect email or password."]'); }
-    get open() { return $('//android.view.View'); }
-
-    async openview() {
-        await this.open;
-    }
-
-    async setUsername(username) { 
+    get usernameInput() { return $('//android.widget.EditText[@content-desc="input-email"]'); }
+    get passwordInput() { return $('//android.widget.EditText[@content-desc="input-password"]'); }
+    get submitButton() { return $('//android.widget.TextView[@text="LOGIN"]'); }
+    get successMessage() { return $('//android.widget.TextView[@resource-id="android:id/message"]'); }
+    get unsuccessfulMessage() { return $('//android.widget.TextView[@text="Incorrect email or password."]'); }  
+    get okButton() { return $('//android.widget.Button[@resource-id="android:id/button1"]'); }  
+   
+    async setUsername(username: string) { 
         await this.usernameInput.setValue(username);
     }
 
+    
     async submitLoginForm() {
         await this.submitButton.click();
     }
-
-    async setPassword(password) { 
+    
+    async setPassword(password: string) { 
         await this.passwordInput.setValue(password);
-    }
-
+    }   
+    
     async loginsuccesfull() {
         await this.successMessage;
     }
-
+   
     async loginunsuccessful() {
         await this.unsuccessfulMessage;
+    }
+    
+    async okIconButton() {
+        await this.okButton.click();
     }
 }
 
 export default new Login();
+
 ```
 
 ## Steps  ⌨️
@@ -277,34 +291,65 @@ The `steps` file defines the steps used in the scenarios of your feature files. 
 **`steps.ts`**
 ```typescript
 
-import { Given, Then, When } from"@cucumber/cucumber";
-import Loginfrom"../pageobjects/Login.page.js";
+import { Given, Then, When } from "@cucumber/cucumber";
+import Login from "../pageobjects/Login.page.js";
+import Home from "../pageobjects/Home.page.js";
 
-Given(/^I am on the login screen$/, async () => {
-    await Login.openview();
+
+
+Given(/^the user is on the home screen$/, async () => {
+    await Home.openHome();
+    await Home.waitForTabBarShown();
 });
 
-When(/^I enter username "([^"]*)"$/, async (username) => {
+
+When(/^the user navigates to the "([^"]*)"$/, async(page) => {
+	await Home.waitForTabBarShown();
+    await Home.openWebView();
+    await new Promise(resolve => setTimeout(resolve, 7000));
+   
+});
+
+
+When(/^the user selects the "([^"]*)" option$/, async(page) => {
+	await Home.openLogin();
+});
+
+
+When(/^the user performs a "([^"]*)" action$/, async(page) => {
+     await Home.openSwipe();	
+});
+
+
+When(/^the user enters "([^"]*)" into the email field$/, async (username) => {
     await Login.setUsername(username);
+
 });
 
-When(/^I tap the login button$/, async () => {
-    await Login.submitLoginForm();
+When(/^the user enters "([^"]*)" into the password field$/, async (password) => {
+    await Login.setPassword(password);
 });
+
 
 When(/^I enter password "([^"]*)"$/, async (password) => {
     await Login.setPassword(password);
 });
 
-Then(/^login is correct$/, async () => {
-    awaitnewPromise(resolve =>setTimeout(resolve, 9000));
-    await Login.loginsuccesfull();
+When(/^I tap the login button$/, async() => {
+    await Login.submitLoginForm();
+    await new Promise(resolve => setTimeout(resolve, 4000));
+
 });
 
-Then(/^an error message is displayed$/, async () => {
-    awaitnewPromise(resolve =>setTimeout(resolve, 9000));
-    await Login.loginunsuccessful();
+
+Then(/^the user should be successfully logged in and see the login success page$/, async() => {
+	await Login.loginsuccesfull();
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    await Login.okIconButton();
 });
+
+
+
 ```
 ### Appium CLI (Command Line Interface) ⌨️
 
@@ -335,7 +380,7 @@ Appium Desktop is a graphical user interface for Appium. It provides a way to in
 
 4. **Configure and Start Server:** Use the Appium Desktop interface to configure and start the Appium server. You can set desired capabilities and start a new session from the GUI.
 
-![image](https://github.com/user-attachments/assets/1eeb0a73-de1f-476b-9874-af95cb17a9ea)
+![image](https://github.com/user-attachments/assets/d8b1aff9-5a4a-40c8-8d5f-a5d720b397a1)
 
 
 ## Appium Inspector 🔗
@@ -385,7 +430,7 @@ For more details, you can refer to the [Appium Inspector documentation](https://
 | `appPackage`     | text    | `com.fasterwaytofatloss.FasterWayToFatLoss`    |
 | `appActivity`    | text    | `com.fasterwaytofatloss.FasterWayToFatLoss.MainActivity` |
 
-![image](https://github.com/user-attachments/assets/6429a703-c515-4e79-92f1-6f60eeadae03)
+![image](https://github.com/user-attachments/assets/cfa15488-4ebf-4739-b3ea-d82d2bea8331)
 
 
 ### Using Appium Inspector
@@ -406,18 +451,18 @@ To use Appium Inspector, you need to start the Appium server. You can do this us
 
 Appium Server 
 
-![image](https://github.com/user-attachments/assets/bacaecdb-f500-48ca-9cf0-192644b9ff1c)
+![image](https://github.com/user-attachments/assets/14b7e7d2-3797-48ae-abde-a232fb5a28bf)
 
 Appium Inspector
 
-![image](https://github.com/user-attachments/assets/a75ea75c-6d8c-4446-b2d9-907299a3e1f0)
+![image](https://github.com/user-attachments/assets/88dfe895-9363-4775-bb4e-410c67759286)
 
 
 3. **Launch Appium Inspector**: Once the Appium server is up and running, you can open Appium Inspector. Enter the necessary Desired Capabilities and click on 'Start Session' to begin inspecting your app.
 
 By following these steps, you will be able to use Appium Inspector to interact with and inspect your mobile application.
 
-![image](https://github.com/user-attachments/assets/325d2cf3-38ae-46ca-b0a4-fede9b122e01)
+![image](https://github.com/user-attachments/assets/59da016e-981c-4bcb-b76a-e84bf6e0d83c)
 
 ### Configuring the Framework
 
@@ -450,7 +495,7 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 │
 ├── apps
 │   ├── android
-│   │   └── QA-3.3.5(306).apk   # APK of the Android app for testing
+│   │   └── android.wdio.native.app.v1.0.8.apk   # APK of the Android app for testing
 │   └── ios
 │       └── ...                 # Files related to the iOS app (empty at the moment)
 │
@@ -471,7 +516,7 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 │
 ├── tests
 │   ├── features
-│   │   └── loginFasterApp.feature   # Cucumber feature file for login tests
+│   │   └── LoginDemoApp.feature   # Cucumber feature file for login tests
 │   ├── helpers
 │   │   ├── Biometrics.ts          # Helpers for handling biometrics
 │   │   ├── Constants.ts           # Definitions of constants used in tests
@@ -481,6 +526,7 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 │   │   └── WebView.ts             # Helpers for handling web views
 │   ├── pageobjects
 │   │   └── Login.page.ts          # Page objects for the login page
+│   │   └── Home.page.ts           # Page objects for the login page
 │   ├── screenobjects
 │   │   ├── components
 │   │   │   ├── NativeAlert.ts    # Native components like alerts
@@ -494,12 +540,14 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 │   │   ├── SwipeScreen.ts        # Screen for swipe tests
 │   │   └── WebviewScreen.ts      # Screen for web view tests
 │   └── steps
-│       └── login_faster_steps.ts   # Step definitions for login tests
+│       └── login_demo_app_steps.ts   # Step definitions for login tests
 │
 ├── .editorconfig           # Code style configuration
 ├── .eslintrc.cjs           # ESLint configuration
 ├── .gitignore              # Files and directories to be ignored by Git
 ├── generateReport.js       # Script to generate reports
+├── LICENSE                 # Dependency lock file to ensure consistent versions
+├── Macintosh.txt           # Dependency lock file to ensure consistent versions
 ├── package-lock.json       # Dependency lock file to ensure consistent versions
 ├── package.json            # Project dependencies and scripts
 ├── README.md               # This file
@@ -516,7 +564,7 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 3. **Open the Configuration File**:
 Inside the expanded config folder, locate and click on the file named wdio.android.cucumber.conf.ts.
 
-![image](https://github.com/user-attachments/assets/e9019753-8d3c-4318-8b63-0b51cd820873)
+![image](https://github.com/user-attachments/assets/0809e7d9-7bc8-48a7-973e-9b67d5f6f8e7)
 
 4.**Edit the Desired Capabilities**:
 
@@ -526,7 +574,7 @@ Inside the expanded config folder, locate and click on the file named wdio.andro
 
 `appium:deviceName`: Set this to the name of your emulator `(e.g., 'Pixel_5')`.
 
-![image](https://github.com/user-attachments/assets/40e81bde-9e9a-4160-9737-4489492ee254)
+![image](https://github.com/user-attachments/assets/9c3eab2a-0e99-4395-a47d-724f570ccb6e)
 
 ## Run Test  💻
 To run the tests, use the following command:
@@ -568,6 +616,9 @@ When adding a new step file for a feature, follow these steps:
 
 ## How to generate a test report  🗂️
 
+![image](https://github.com/user-attachments/assets/4a44d6e2-6ffa-41f0-ba97-049abf36c8d7)
+
+![image](https://github.com/user-attachments/assets/dc6e1d3a-05b3-4015-b626-80a7201817fe)
 
 run the command
 
