@@ -4,6 +4,7 @@ class Login {
     get submitButton() { return $('//android.widget.TextView[@text="LOGIN"]'); }
     get successMessage() { return $('//android.widget.TextView[@resource-id="android:id/message"]'); }
     get unsuccessfulMessage() { return $('//android.widget.TextView[@text="Incorrect email or password."]'); }  
+    get okButton() { return $('//android.widget.Button[@resource-id="android:id/button1"]'); }  
    
     async setUsername(username: string) { 
         await this.usernameInput.setValue(username);
@@ -24,6 +25,10 @@ class Login {
    
     async loginunsuccessful() {
         await this.unsuccessfulMessage;
+    }
+    
+    async okIconButton() {
+        await this.okButton.click();
     }
 }
 

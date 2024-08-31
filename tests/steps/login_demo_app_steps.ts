@@ -52,6 +52,8 @@ When(/^I tap the login button$/, async() => {
 
 Then(/^the user should be successfully logged in and see the login success page$/, async() => {
 	await Login.loginsuccesfull();
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    await Login.okIconButton();
 });
 
 
