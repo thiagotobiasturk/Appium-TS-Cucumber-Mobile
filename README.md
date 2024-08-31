@@ -1,4 +1,4 @@
-# appium-ts-cucumber
+# Appium-TS-Cucumber-Mobile
 
 ![download](https://github.com/user-attachments/assets/d8feda61-6a05-47b6-8705-b185913fa659)
 

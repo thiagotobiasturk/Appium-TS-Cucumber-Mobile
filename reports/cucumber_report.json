@@ -1,20 +1,20 @@
 [
   {
-    "description": "  As a user of the mobile application\n  I want to be able to log in with valid credentials\n  And see an error message with invalid credentials",
+    "description": "  This feature describes the process for a user to log into the application. \n  It covers the steps required to navigate to the login screen, enter credentials, \n  and verify a successful login.",
     "elements": [
       {
         "description": "",
-        "id": "login-to-mobile-application;successful-login-with-valid-credentials",
+        "id": "user-login-process;successful-login",
         "keyword": "Scenario",
-        "line": 9,
-        "name": "Successful Login with Valid Credentials",
+        "line": 7,
+        "name": "Successful login",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1707699
+              "duration": 4872500
             }
           },
           {
@@ -22,47 +22,85 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 9891584500
+              "duration": 12395469199
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 10,
-            "name": "I am on the login screen",
+            "line": 8,
+            "name": "the user is on the home screen",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:8"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 1778537300
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 11,
-            "name": "I enter username \"chalm+2@temperies.com\"",
+            "line": 9,
+            "name": "the user navigates to the \"webview\"",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:14"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 7278703598
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "the user performs a \"swipe\" action",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1030516898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the user selects the \"login\" option",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1888456398
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 12,
-            "name": "I tap the login button",
+            "name": "the user enters \"appium@gmail.com\" into the email field",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:32"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 2861711899
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 13,
-            "name": "I enter password \"fatloss123\"",
+            "name": "the user enters \"password123\" into the password field",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:37"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 1543615999
             }
           },
           {
@@ -70,19 +108,25 @@
             "keyword": "And ",
             "line": 14,
             "name": "I tap the login button",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:46"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 4573368898
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 15,
-            "name": "login is correct",
+            "name": "the user should be successfully logged in and see the login success page",
+            "match": {
+              "location": "tests\\steps\\login_demo_app_steps.ts:53"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 79867598
             }
           },
           {
@@ -90,7 +134,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 639800
+              "duration": 423199
             }
           },
           {
@@ -98,33 +142,19 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 360700
+              "duration": 194700
             }
           }
         ],
-        "tags": [
-          {
-            "name": "@all",
-            "line": 1
-          },
-          {
-            "name": "@test1",
-            "line": 8
-          }
-        ],
+        "tags": [],
         "type": "scenario"
       }
     ],
-    "id": "login-to-mobile-application",
-    "line": 2,
+    "id": "user-login-process",
+    "line": 1,
     "keyword": "Feature",
-    "name": "Login to Mobile Application",
-    "tags": [
-      {
-        "name": "@all",
-        "line": 1
-      }
-    ],
-    "uri": "tests\\features\\loginFasterApp.feature"
+    "name": "User login process",
+    "tags": [],
+    "uri": "tests\\features\\LoginDemoApp.feature"
   }
 ]

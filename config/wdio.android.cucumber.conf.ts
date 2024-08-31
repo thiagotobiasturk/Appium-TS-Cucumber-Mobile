@@ -27,7 +27,7 @@ export const config: WebdriverIO.Config = {
 
     cucumberOpts: {
         require: [
-            path.join(__dirname, '..', 'tests', 'steps', 'login_faster_steps.ts'),
+            path.join(__dirname, '..', 'tests', 'steps', 'login_demo_app_steps.ts'),
             path.join(__dirname, '..', 'tests','helpers', 'hooks.ts'), 
         ],
         format: ['json:./reports/cucumber_report.json'],
@@ -49,7 +49,7 @@ export const config: WebdriverIO.Config = {
         {
             platformName: 'Android',
             // maxInstances: 1,
-            'appium:deviceName': 'Nexus 6',
+            'appium:deviceName': 'emulator-5554',
             'appium:platformVersion': '12.0',
             'appium:orientation': 'PORTRAIT',
             'appium:automationName': 'UiAutomator2',
@@ -57,10 +57,11 @@ export const config: WebdriverIO.Config = {
                 process.cwd(),
                 'apps/android',
                 
-                'QA-3.3.5(306).apk',
+                'android.wdio.native.app.v1.0.8.apk',
             ),
-            'appium:appWaitActivity': 'com.fasterwaytofatloss.FasterWayToFatLoss.MainActivity',
+            'appium:appWaitActivity': 'com.wdiodemoapp.MainActivity',
             'appium:newCommandTimeout': 240,
         },
     ],
 };
+
