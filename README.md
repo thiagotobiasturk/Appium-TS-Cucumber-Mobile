@@ -525,8 +525,8 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 │   │   ├── Utils.ts               # General utilities for tests
 │   │   └── WebView.ts             # Helpers for handling web views
 │   ├── pageobjects
-│   │   └── Login.page.ts          # Page objects for the login page
-│   │   └── Home.page.ts           # Page objects for the login page
+│   │   ├── Login.page.ts          # Page objects for the login page
+│   │   └── Home.page.ts           # Page objects for the home page
 │   ├── screenobjects
 │   │   ├── components
 │   │   │   ├── NativeAlert.ts    # Native components like alerts
@@ -546,10 +546,11 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 ├── .eslintrc.cjs           # ESLint configuration
 ├── .gitignore              # Files and directories to be ignored by Git
 ├── generateReport.js       # Script to generate reports
-├── LICENSE                 # Dependency lock file to ensure consistent versions
-├── Macintosh.txt           # Dependency lock file to ensure consistent versions
+├── LICENSE                 # License file
+├── Macintosh.txt           # Text file displayed in the terminal at the start of the test run
 ├── package-lock.json       # Dependency lock file to ensure consistent versions
 ├── package.json            # Project dependencies and scripts
+├── printFile.js            # Script to print the contents of Macintosh.txt to the terminal
 ├── README.md               # This file
 └── tsconfig.json           # TypeScript configuration
 
