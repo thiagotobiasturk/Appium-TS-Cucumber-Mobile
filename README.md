@@ -627,3 +627,8 @@ npm run report
 ```
 
 after the tests have completed.
+
+# Author 🛠️
+Thiago Tobias Turk
+
+www.linkedin.com/in/thiago-tobias-turk-4462542a9
