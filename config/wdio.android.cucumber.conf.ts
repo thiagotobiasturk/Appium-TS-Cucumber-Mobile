@@ -49,7 +49,7 @@ export const config: WebdriverIO.Config = {
         {
             platformName: 'Android',
             // maxInstances: 1,
-            'appium:deviceName': 'emulator-5554',
+            'appium:deviceName': 'Nexus 6',
             'appium:platformVersion': '12.0',
             'appium:orientation': 'PORTRAIT',
             'appium:automationName': 'UiAutomator2',
