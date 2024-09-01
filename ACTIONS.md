@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/bb8ee3d5-3347-4bbd-b59f-2d2f5b38f362)
 
+![image](https://github.com/user-attachments/assets/843c2c5d-f42e-4f3c-9c68-e7a1fb4d1d81)
 
 
 This repository uses GitHub Actions to automate Continuous Integration (CI) and Continuous Deployment (CD) processes. The workflow file `.github/workflows/build.yml` defines the steps for automated builds, testing, and reporting.
@@ -9,6 +10,8 @@ This repository uses GitHub Actions to automate Continuous Integration (CI) and 
 ## Workflow Overview
 
 The GitHub Actions workflow is triggered manually using the `workflow_dispatch` event. This allows you to customize the Node.js version and decide whether to generate and upload a test report.
+
+![image](https://github.com/user-attachments/assets/731abbcc-469c-4311-95fb-670709b22b66)
 
 ### Workflow File
 
