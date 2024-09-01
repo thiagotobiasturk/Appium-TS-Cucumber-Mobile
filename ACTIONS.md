@@ -126,3 +126,5 @@ jobs:
           path: |
             ./reports
 ```
+
+[Execute](https://github.com/thiagotobiasturk/Appium-TS-Cucumber-Mobile/actions/workflows/build.yml)
