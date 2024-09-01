@@ -3,7 +3,6 @@
 ![image](https://github.com/user-attachments/assets/bb8ee3d5-3347-4bbd-b59f-2d2f5b38f362)
 
 
-# Continuous Integration (CI/CD) with GitHub Actions
 
 This repository uses GitHub Actions to automate Continuous Integration (CI) and Continuous Deployment (CD) processes. The workflow file `.github/workflows/build.yml` defines the steps for automated builds, testing, and reporting.
 
