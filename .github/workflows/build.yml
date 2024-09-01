@@ -1,13 +1,6 @@
 name: CI/CD
 
 on:  
-  push:
-    branches:
-      - develop
-      - master
-    
-    paths-ignore:
-      - ".github/workflows/*.yml"
   workflow_dispatch:
     inputs:
       node-version:
