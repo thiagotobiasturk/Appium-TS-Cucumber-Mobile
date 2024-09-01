@@ -1,31 +1,59 @@
 import { Given, Then, When } from "@cucumber/cucumber";
-import LoginDemoAppPage from "../pageobjects/LoginDemoApp.page.js";
+import Login from "../pageobjects/Login.page.js";
+import Home from "../pageobjects/Home.page.js";
+import { browser } from '@wdio/globals';
 
-const username = 'test@webdriver.io';
-const password = 'Test1234!';
 
-Given(/^I am on the login tab$/, async () => {
-    await LoginDemoAppPage.openvieww();
-    await new Promise(resolve => setTimeout(resolve, 9000));
-    await LoginDemoAppPage.loginiconButton();
+
+Given(/^the user is on the home screen$/, async () => {
+    await Home.openHome();
+    await Home.waitForTabBarShown();
 });
 
 
-When(/^I complete the email field$/, async () => {
-    await LoginDemoAppPage.setUsername(username);
-});
-
-When(/^I complete the password field$/, async () => {
-	await LoginDemoAppPage.setPassword(password);
-    await LoginDemoAppPage.submitLoginForm();
+When(/^the user navigates to the "([^"]*)"$/, async(page) => {
+	await Home.waitForTabBarShown();
+    await Home.openWebView();
+    await new Promise(resolve => setTimeout(resolve, 7000));
+   
 });
 
 
-Then(/^I should see a Success alert$/, async() => {
-	await LoginDemoAppPage.loginsuccesfull();
+When(/^the user selects the "([^"]*)" option$/, async(page) => {
+	await Home.openLogin();
 });
 
-Then(/^the alert should be closed when I click on OK$/, async () => {
-	await new Promise(resolve => setTimeout(resolve, 3000));
-    await LoginDemoAppPage.okSucces();
+
+When(/^the user performs a "([^"]*)" action$/, async(page) => {
+     await Home.openSwipe();	
 });
+
+
+When(/^the user enters "([^"]*)" into the email field$/, async (username) => {
+    await Login.setUsername(username);
+
+});
+
+When(/^the user enters "([^"]*)" into the password field$/, async (password) => {
+    await Login.setPassword(password);
+});
+
+
+When(/^I enter password "([^"]*)"$/, async (password) => {
+    await Login.setPassword(password);
+});
+
+When(/^I tap the login button$/, async() => {
+    await Login.submitLoginForm();
+    await new Promise(resolve => setTimeout(resolve, 4000));
+
+});
+
+
+Then(/^the user should be successfully logged in and see the login success page$/, async() => {
+	await Login.loginsuccesfull();
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    await Login.okIconButton();
+});
+
+

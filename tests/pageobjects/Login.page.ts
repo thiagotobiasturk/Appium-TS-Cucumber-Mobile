@@ -1,15 +1,11 @@
 class Login {
-    get usernameInput() { return $('//android.widget.EditText[@text="Email"]'); }
-    get passwordInput() { return $('//android.widget.EditText[@text="Password"]'); }
-    get submitButton() { return $('(//android.widget.TextView[@text="Sign In"])[2]'); }
-    get successMessage() { return $('//android.widget.ScrollView/android.view.ViewGroup'); }
+    get usernameInput() { return $('//android.widget.EditText[@content-desc="input-email"]'); }
+    get passwordInput() { return $('//android.widget.EditText[@content-desc="input-password"]'); }
+    get submitButton() { return $('//android.widget.TextView[@text="LOGIN"]'); }
+    get successMessage() { return $('//android.widget.TextView[@resource-id="android:id/message"]'); }
     get unsuccessfulMessage() { return $('//android.widget.TextView[@text="Incorrect email or password."]'); }  
-    get open() { return $('//android.view.View');}
-    
-    async openview() {
-        await this.open;
-    }
-
+    get okButton() { return $('//android.widget.Button[@resource-id="android:id/button1"]'); }  
+   
     async setUsername(username: string) { 
         await this.usernameInput.setValue(username);
     }
@@ -21,7 +17,7 @@ class Login {
     
     async setPassword(password: string) { 
         await this.passwordInput.setValue(password);
-    }
+    }   
     
     async loginsuccesfull() {
         await this.successMessage;
@@ -29,6 +25,10 @@ class Login {
    
     async loginunsuccessful() {
         await this.unsuccessfulMessage;
+    }
+    
+    async okIconButton() {
+        await this.okButton.click();
     }
 }
 

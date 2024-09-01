@@ -4,7 +4,6 @@ import path from 'path';
 import { browser } from '@wdio/globals';
 
 Before(async function () {
-    // Opcional: reiniciar la sesión antes de cada escenario
     await browser.reloadSession();
 });
 

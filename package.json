@@ -1,5 +1,5 @@
 {
-    "name": "appium-ts-cucumber",
+    "name": "appium-ts-cucumber-mobile",
     "version": "1.0.0",
     "author": "",
     "license": "MIT",
@@ -19,7 +19,7 @@
     ],
     "type": "module",
     "scripts": {
-        "test.android": "wdio run config/wdio.android.cucumber.conf.ts",
+        "test.android": "node ./printFile.js & wdio run config/wdio.android.cucumber.conf.ts",
         "report": "node generateReport.js",
         "test.ios": "wdio run config/wdio.ios.app.cucumber.conf.ts"
     },

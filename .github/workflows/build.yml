@@ -1,13 +1,26 @@
-name: Run Android Emulators and Tests
+name: CI/CD
 
 on:  
- push:
-    branches:
-      - develop
-      - master
-    
-    paths-ignore:
-     - ".github/workflows/*.yml"
+  workflow_dispatch:
+    inputs:
+      node-version:
+        description: 'Choose the Node.js version for the workflow'
+        required: false
+        default: '20'
+        type: choice
+        options:
+          - '16'
+          - '18'
+          - '20'
+          - '21'
+      generate-report:
+        description: 'Choose whether to create and upload the test report'
+        required: false
+        default: 'no'
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
 
 jobs:
   build:
@@ -19,7 +32,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21'  
+          node-version: ${{ github.event.inputs.node-version }}
 
       - name: Install dependencies
         run: |
@@ -39,22 +52,24 @@ jobs:
           arch: x86_64
           profile: Nexus 6
           script: |
-            adb install "apps/android/QA-3.3.5(306).apk"
-            adb shell dumpsys package    com.fasterwaytofatloss.FasterWayToFatLoss | grep -A 1 "MAIN"
+            adb install "apps/android/android.wdio.native.app.v1.0.8.apk"
+            adb shell dumpsys package com.wdiodemoapp | grep -A 1 "MAIN"
             adb wait-for-device
             adb shell input keyevent 82
-            npx wdio run config/wdio.android.cucumber.conf.ts --cucumberOpts.tags="@all"
-     
+            npm run test.android
+
       - name: generate report
+        if: ${{ github.event.inputs.generate-report == 'yes' }}
         run: npm run report
 
-
       - name: upload test report
+        if: ${{ github.event.inputs.generate-report == 'yes' }}
         uses: actions/upload-artifact@v4  
         with:
           name: test-report
           path: |
             ./reports
+
 
         
      # avdmanager list device
