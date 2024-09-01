@@ -3,64 +3,50 @@
 ![image](https://github.com/user-attachments/assets/bb8ee3d5-3347-4bbd-b59f-2d2f5b38f362)
 
 
-This repository uses GitHub Actions to automate the Continuous Integration (CI) and Continuous Deployment (CD) processes. The CI/CD workflow defined in this repository is designed to handle code integration and testing tasks in an automated manner.
+# Continuous Integration (CI/CD) with GitHub Actions
+
+This repository uses GitHub Actions to automate Continuous Integration (CI) and Continuous Deployment (CD) processes. The workflow file `.github/workflows/build.yml` defines the steps for automated builds, testing, and reporting.
 
 ## Workflow Overview
 
-The GitHub Actions workflow file `.github/workflows/build.yml` defines the steps to be executed for each code push and allows manual triggers with customizable inputs. The workflow performs the following tasks:
+The GitHub Actions workflow is triggered manually using the `workflow_dispatch` event. This allows you to customize the Node.js version and decide whether to generate and upload a test report.
 
-1. **Triggering Events:**
-   - **Push Events:** The workflow is triggered automatically on pushes to the `develop` and `master` branches, except when changes are made to workflow YAML files.
-   - **Manual Triggers:** The workflow can also be triggered manually using the `workflow_dispatch` event, allowing for customization of Node.js version and whether to generate a test report.
+### Workflow File
 
-2. **Job Definition:**
-   The workflow includes a single job named `build` which runs on the `ubuntu-latest` runner. The job consists of several steps:
+The workflow file is located at `.github/workflows/build.yml` and contains the following steps:
 
-   - **Checkout Code:** Uses `actions/checkout` to check out the code from the repository.
-   - **Set up Node.js:** Uses `actions/setup-node` to set up the Node.js environment based on the specified version.
-   - **Install Dependencies:** Runs `npm install` to install project dependencies.
-   - **Enable KVM:** Configures KVM (Kernel-based Virtual Machine) with specific rules and triggers.
-   - **Run Android Emulator:** Uses `ReactiveCircus/android-emulator-runner` to run an Android emulator, install an APK, and execute Android tests.
-   - **Generate Report:** Conditionally generates a test report if the `generate-report` input is set to 'yes'.
-   - **Upload Test Report:** Conditionally uploads the test report artifact if the `generate-report` input is set to 'yes'.
+1. **Checkout Code:** Uses `actions/checkout@v4` to check out the code from the repository.
+2. **Set up Node.js:** Uses `actions/setup-node@v3` to set up the Node.js environment based on the specified version.
+3. **Install Dependencies:** Runs `npm install` to install the project's dependencies.
+4. **Enable KVM:** Configures KVM (Kernel-based Virtual Machine) with specific rules and triggers.
+5. **Run Android Emulator:** Uses `ReactiveCircus/android-emulator-runner@v2.32.0` to run an Android emulator, install an APK, and execute Android tests.
+6. **Generate Report:** Conditionally generates a test report if the `generate-report` input is set to `'yes'`.
+7. **Upload Test Report:** Conditionally uploads the test report artifact if the `generate-report` input is set to `'yes'`.
 
-## Customizing the Workflow
+### Manual Trigger
 
-You can customize the workflow using the following inputs when manually triggering the workflow:
+You can manually trigger the workflow with custom inputs via GitHub's Actions tab. This allows you to choose the Node.js version and whether to generate and upload the test report.
 
-- **`node-version`**: Choose the version of Node.js to use. Available options are:
-  - `16`
-  - `18`
-  - `20` (default)
-  - `21`
+### Inputs
 
-- **`generate-report`**: Decide whether to generate and upload the test report. Available options are:
-  - `yes`
-  - `no` (default)
+- **`node-version`**: Choose the version of Node.js to use for the workflow.
+  - **Options:** `16`, `18`, `20` (default), `21`
 
-## Manual Trigger
+- **`generate-report`**: Choose whether to create and upload the test report.
+  - **Options:** `yes`, `no` (default)
 
-To manually trigger the workflow with custom inputs, go to the Actions tab of this repository on GitHub, select the "CI/CD" workflow, and click on the "Run workflow" button. You'll be prompted to select the desired inputs before starting the workflow.
+### Example Workflow File
 
-## Workflow File
-
-The workflow is defined in `.github/workflows/build.yml`. Below is the content of the workflow file:
+Here is the content of the workflow file:
 
 ```yaml
 name: CI/CD
 
-on:  
-  push:
-    branches:
-      - develop
-      - master
-    
-    paths-ignore:
-      - ".github/workflows/*.yml"
+on:      
   workflow_dispatch:
     inputs:
       node-version:
-        description: 'Version of Node.js to use'
+        description: 'Choose the Node.js version for the workflow'
         required: false
         default: '20'
         type: choice
@@ -70,7 +56,7 @@ on:
           - '20'
           - '21'
       generate-report:
-        description: 'Whether to generate and upload the test report'
+        description: 'Choose whether to create and upload the test report'
         required: false
         default: 'no'
         type: choice
@@ -125,6 +111,7 @@ jobs:
           name: test-report
           path: |
             ./reports
+
 ```
 
 [Execute](https://github.com/thiagotobiasturk/Appium-TS-Cucumber-Mobile/actions/workflows/build.yml)
