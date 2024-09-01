@@ -29,7 +29,7 @@ Steps to install and set up your project. This may include prerequisites, depend
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Appium-TS-Cucumber-Mobile.git
+https://github.com/thiagotobiasturk/Appium-TS-Cucumber-Mobile.git
 
 # Navigate into the project directory
 cd Appium-TS-Cucumber-Mobile
