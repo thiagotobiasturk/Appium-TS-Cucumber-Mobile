@@ -546,6 +546,7 @@ Este proyecto es una aplicación de prueba automatizada que utiliza [WebdriverIO
 ├── .editorconfig           # Code style configuration
 ├── .eslintrc.cjs           # ESLint configuration
 ├── .gitignore              # Files and directories to be ignored by Git
+├── ACTIONS.md              # Documentation for CI/CD processes
 ├── generateReport.js       # Script to generate reports
 ├── LICENSE                 # License file
 ├── Macintosh.txt           # Text file displayed in the terminal at the start of the test run
