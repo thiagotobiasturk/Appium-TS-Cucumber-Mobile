@@ -11,9 +11,12 @@
   <a href="https://www.javascript.com/" target="_blank"><img style="margin: 2px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="75" /></a>  
   <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="75" /></a>  
     <a href="https://appium.io/" target="_blank"><img style="margin: 10px" src="https://miro.medium.com/v2/resize:fit:800/1*N5M8NJtZp83EMrK1WGhjjw.png" alt="Appium" height="75" /></a>
+    <a href="https://github.com/appium/appium-inspector/releases" target="_blank"><img style="margin: 10px" src="https://github.com/user-attachments/assets/e5298450-6180-46d2-83a9-cd6ce11ee741" alt="Appium" height="75" /></a>
+    <a href="https://developer.android.com/studio?gad_source=1&gclid=Cj0KCQjwsc24BhDPARIsAFXqAB2JDYcIh6i2sFTn2N-L9zULYnzqpF_P6BzeR0EwkA6JHiXTcxBrndQaAhgdEALw_wcB&gclsrc=aw.ds" target="_blank"><img style="margin: 10px" src="https://github.com/user-attachments/assets/f96c7988-915b-4bfe-a10b-044ffb6c599a" alt="AndridSudio" height="75" /></a>
   <a href="https://cucumber.io/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/4f94ac41-9d86-453d-9ed8-8a416a4f38a8" height="75" /></a>
   <a href="https://nodejs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" alt="Node.js" height="100" /></a> 
- <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/49766327-ba26-4422-83c0-93d3c9199f29" height="75" /></a>
+ <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://gi![icon-removebg-preview](https://github.com/user-attachments/assets/a84103dc-1bf0-4901-bb9b-8272da81c317)
+thub.com/user-attachments/assets/49766327-ba26-4422-83c0-93d3c9199f29" height="75" /></a>
   <a href="https://code.visualstudio.com/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/07a14efd-dcec-475d-9a56-d1ba1c726857" height="75" /></a>
 </div>  
 
