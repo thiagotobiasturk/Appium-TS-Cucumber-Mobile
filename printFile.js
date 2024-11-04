@@ -1,10 +1,9 @@
 // printFile.js
 
-import { readFile } from 'fs/promises'; // Usamos fs/promises para promesas en lugar de callbacks
+import { readFile } from 'fs/promises'; 
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
-// Obtener el directorio del archivo actual
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
