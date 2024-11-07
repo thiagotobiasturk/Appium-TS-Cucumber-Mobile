@@ -17,6 +17,7 @@
   <a href="https://nodejs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" alt="Node.js" height="100" /></a> 
  <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://gi![icon-removebg-preview](https://github.com/user-attachments/assets/a84103dc-1bf0-4901-bb9b-8272da81c317)
 thub.com/user-attachments/assets/49766327-ba26-4422-83c0-93d3c9199f29" height="75" /></a>
+     <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/49766327-ba26-4422-83c0-93d3c9199f29" height="75" /></a>
   <a href="https://code.visualstudio.com/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/07a14efd-dcec-475d-9a56-d1ba1c726857" height="75" /></a>
 </div>  
 
@@ -652,4 +653,7 @@ after the tests have completed.
 # Author 🛠️
 Thiago Tobias Turk
 
-www.linkedin.com/in/thiago-tobias-turk-4462542a9
+<div align="left">
+  <a href="https://www.linkedin.com/in/thiago-tobias-turk-4462542a9/" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" style="margin-bottom: 5px; margin-right: 10px;" />
+  </a>
