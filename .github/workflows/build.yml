@@ -59,7 +59,7 @@ jobs:
             
 
       - name: Run Tests
-        if: needs.Run Android Emulator == 'success'
+        if: needs.Run-Android-Emulator == 'success'
         run: npm run test.android
 
       - name: generate report
