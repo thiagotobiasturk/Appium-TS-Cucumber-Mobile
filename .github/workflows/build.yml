@@ -52,15 +52,15 @@ jobs:
           arch: x86_64
           profile: Nexus 6
           script: |
+            echo "Installing App"
             adb install "apps/android/android.wdio.native.app.v1.0.8.apk"
             adb shell dumpsys package com.wdiodemoapp | grep -A 1 "MAIN"
             adb wait-for-device
             adb shell input keyevent 82
-
+            echo "Runing Tests"
+            npm run test.android
         
-      - name: Run Android Tests
-        run: npm run test.android   
-
+      
       - name: generate report
         if: ${{ github.event.inputs.generate-report == 'yes' }}
         run: npm run report
