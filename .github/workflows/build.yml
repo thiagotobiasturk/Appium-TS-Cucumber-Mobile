@@ -51,16 +51,19 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: Nexus 6
-          script: |
+          disable-animations: true
+          emulator-options: "-no-snapshot -no-window"
+          
+      - name: Prepare Android App
+        run: |
             adb install "apps/android/android.wdio.native.app.v1.0.8.apk"
             adb shell dumpsys package com.wdiodemoapp | grep -A 1 "MAIN"
             adb wait-for-device
             adb shell input keyevent 82
-            
-
-      - name: Run Tests
-        if: needs.Run-Android-Emulator == 'success'
-        run: npm run test.android
+            npm run test.android
+      
+      - name: Run Android Tests
+        run: npm run test.android   
 
       - name: generate report
         if: ${{ github.event.inputs.generate-report == 'yes' }}
